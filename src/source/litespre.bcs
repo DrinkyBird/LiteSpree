@@ -1,3 +1,6 @@
+// -*- mode: c;-*-
+// ^ Just to force GitHub to format it like C
+
 #include "zcommon.h.bcs"
 
 #library "litespre"
