@@ -1,0 +1,15 @@
+[eng default]
+spree0 			= "Killing Spree";
+spree1 			= "Rampage!";
+spree2 			= "Dominating!";
+spree3 			= "Unstoppable!";
+spree4 			= "GODLIKE!";
+spree5 			= "WICKED SICK!";
+
+multi0 			= "Double Kill!";
+multi1 			= "Multi Kill!";
+multi2 			= "MEGA Kill!";
+multi3 			= "ULTRA Kill!";
+multi4 			= "MONSTER Kill!";
+multi5 			= "LUDICROUS Kill!";
+multi6 			= "H O L Y  S H I T !";

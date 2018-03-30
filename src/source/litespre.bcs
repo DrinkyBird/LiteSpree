@@ -1,0 +1,151 @@
+#include "zcommon.h.bcs"
+
+#library "litespre"
+
+#define MAXPLAYERS 64
+
+// For some reason, named scripts don't get executed.
+#define LS_DEATH_SCRIPT 6942
+
+#define MULTI_COUNT 7
+int multis[MULTI_COUNT] = { 2, 3, 4, 5, 6, 7, 8 };
+str multic[MULTI_COUNT] = { "j", "d", "k", "h", "n", "a", "g" };
+
+#define SPREE_COUNT 6
+int spree[SPREE_COUNT] = { 5, 10, 15, 20, 25, 30 };
+str spreec[SPREE_COUNT] = { "j", "d", "h", "g", "f", "a" };
+
+// ticks
+#define LS_MULTIKILL_TIMEOUT 120
+int multiKills[MAXPLAYERS];
+int multiKillTimers[MAXPLAYERS];
+int sprees[MAXPLAYERS];
+
+enum
+{
+	MSG_Multikill,
+	MSG_Spree,
+	MSG_SpreeEnd
+};
+
+Script "LiteSpree PlayerInit" (int idx)
+{
+	Thing_SetSpecial(0, ACS_ExecuteAlways, LS_DEATH_SCRIPT, 0, idx);
+
+	multiKillTimers[idx] = 0;
+	multiKills[idx] = 0;
+	sprees[idx] = 0;
+}
+
+Script "LiteSpree PlayerEnter" ENTER
+{
+	ACS_NamedExecuteAlways("LiteSpree PlayerInit", 0, PlayerNumber(), 0, 0);
+}
+
+Script "LiteSpree PlayerRespawn" RESPAWN
+{
+	ACS_NamedExecuteAlways("LiteSpree PlayerInit", 0, PlayerNumber(), 0, 0);
+}
+
+// Executed when a player is killed..
+// Activator is the killer, victim is the killee.
+Script LS_DEATH_SCRIPT (int victim)
+{
+	int killer = PlayerNumber();
+
+	// If the victim had a spree, announce its end
+	if (sprees[victim] >= sprees[0])
+	{
+		ACS_NamedExecuteAlways("LiteSpree AnnounceMultiKill", 0, MSG_SpreeEnd, victim, killer);
+	}
+
+	sprees[killer]++;
+
+	// Update the player's multikill status
+	if (Timer() - multiKillTimers[killer] >= LS_MULTIKILL_TIMEOUT)
+	{
+		multiKills[killer] = 0;
+	}
+
+	multiKillTimers[killer] = Timer();
+	multiKills[killer]++;
+
+	for (int i = 0; i < MULTI_COUNT; i++)
+	{
+		if (multiKills[killer] == multis[i])
+		{
+			ACS_NamedExecuteAlways("LiteSpree AnnounceMultiKill", 0, MSG_Multikill, killer, i);
+
+			break;
+		}
+	}
+
+	for (i = 0; i < SPREE_COUNT; i++)
+	{
+		if (sprees[killer] == spree[i])
+		{
+			ACS_NamedExecuteAlways("LiteSpree AnnounceMultiKill", 0, MSG_Spree, killer, i);
+
+			break;
+		}
+	}
+}
+
+Script "LiteSpree AnnounceMultiKill"(int msg, int player, int parm) CLIENTSIDE
+{
+	if (msg == MSG_Multikill)
+	{
+		int index = parm;
+		str lang = StrParam(s: "multi", d: index);
+
+		// We are not the person with the multi.
+		if (ConsolePlayerNumber() != player)
+		{
+			// We don't care.
+			terminate;
+		}
+		// We are the person with the multi.
+		else
+		{
+			if (index >= 4) // >= monster kill
+			{
+				SetFont("BIGFONT");
+			}
+
+			HudMessage(s: "\c", s: multic[index], l: lang; HUDMSG_FADEOUT | HUDMSG_LOG,
+				69420, CR_WHITE, 1.5, 0.25, 1.0
+			);
+
+			SetFont("DOOMFONT");
+		}
+	}
+
+	else if (msg == MSG_Spree)
+	{
+		str isona = "";
+		if (parm < 2) isona = " on a";
+		str langs = StrParam(s: "spree", d: parm);
+
+		HudMessage(s: "\cf", n: player, s: "\cj is", s: isona, s: " \c", s: spreec[parm], l: langs ; HUDMSG_FADEOUT | HUDMSG_LOG,
+			69421, CR_WHITE, 1.5, 0.25, 1.0
+		);
+	}
+
+	else if (msg == MSG_SpreeEnd)
+	{
+		int killer = parm;
+
+		if (killer == player)
+		{
+			HudMessage(s: "\cf", n: player, s: "\cj was looking good until they killed themselves"; HUDMSG_FADEOUT | HUDMSG_LOG,
+				69421, CR_WHITE, 1.5, 0.25, 1.0
+			);
+		}
+		else
+		{
+			HudMessage(s: "\cf", n: player, s: "\cj's killing spree was ended by \cf", n: killer; HUDMSG_FADEOUT | HUDMSG_LOG,
+				69421, CR_WHITE, 1.5, 0.25, 1.0
+			);
+		}
+	}
+}
