@@ -8,7 +8,7 @@
 #define MAXPLAYERS 64
 
 // For some reason, named scripts don't get executed.
-#define LS_DEATH_SCRIPT 6942
+#define LS_DEATH_SCRIPT 6941
 
 #define MULTI_COUNT 7
 int multis[MULTI_COUNT] = { 2, 3, 4, 5, 6, 7, 8 };
@@ -94,6 +94,7 @@ Script LS_DEATH_SCRIPT (int victim)
 	}
 }
 
+// Despite the name, this actually announces everything
 Script "LiteSpree AnnounceMultiKill"(int msg, int player, int parm) CLIENTSIDE
 {
 	if (msg == MSG_Multikill)
@@ -130,7 +131,7 @@ Script "LiteSpree AnnounceMultiKill"(int msg, int player, int parm) CLIENTSIDE
 		str langs = StrParam(s: "spree", d: parm);
 
 		HudMessage(s: "\cf", n: player, s: "\cj is", s: isona, s: " \c", s: spreec[parm], l: langs ; HUDMSG_FADEOUT | HUDMSG_LOG,
-			69421, CR_WHITE, 1.5, 0.25, 1.0
+			69421, CR_WHITE, 1.5, 0.2, 1.0
 		);
 	}
 
