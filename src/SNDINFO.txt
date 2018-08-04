@@ -6,26 +6,18 @@ litespree/002 LTSPa002
 litespree/003 LTSPa003
 litespree/004 LTSPa004
 litespree/005 LTSPa005
-
-// UT Classic, sprees
-litespree/000 LTSPa000
-litespree/001 LTSPa001
-litespree/002 LTSPa002
-litespree/003 LTSPa003
-litespree/004 LTSPa004
-litespree/005 LTSPa005
 litespree/006 LTSPa006
 
-///////////////////////////////////////////////////////////////////////////////
-// RESERVED, multis
-litespree/100 LTSPa100
-litespree/101 LTSPa101
-litespree/102 LTSPa102
-litespree/103 LTSPa103
-litespree/104 LTSPa104
-litespree/105 LTSPa105
+// UT Classic, sprees
+litespree/010 LTSPa010
+litespree/011 LTSPa011
+litespree/012 LTSPa012
+litespree/013 LTSPa013
+litespree/014 LTSPa014
+litespree/015 LTSPa015
 
-// RESERVED, sprees
+///////////////////////////////////////////////////////////////////////////////
+// UT 2003, multis
 litespree/100 LTSPa100
 litespree/101 LTSPa101
 litespree/102 LTSPa102
@@ -34,16 +26,16 @@ litespree/104 LTSPa104
 litespree/105 LTSPa105
 litespree/106 LTSPa106
 
-///////////////////////////////////////////////////////////////////////////////
-// RESERVED, multis
-litespree/200 LTSPa200
-litespree/201 LTSPa201
-litespree/202 LTSPa202
-litespree/203 LTSPa203
-litespree/204 LTSPa204
-litespree/205 LTSPa205
+// UT 2003, sprees
+litespree/110 LTSPa110
+litespree/111 LTSPa111
+litespree/112 LTSPa112
+litespree/113 LTSPa113
+litespree/114 LTSPa114
+litespree/115 LTSPa115
 
-// RESERVED, sprees
+///////////////////////////////////////////////////////////////////////////////
+// multis
 litespree/200 LTSPa200
 litespree/201 LTSPa201
 litespree/202 LTSPa202
@@ -52,16 +44,16 @@ litespree/204 LTSPa204
 litespree/205 LTSPa205
 litespree/206 LTSPa206
 
-///////////////////////////////////////////////////////////////////////////////
-// RESERVED, multis
-litespree/300 LTSPa300
-litespree/301 LTSPa301
-litespree/302 LTSPa302
-litespree/303 LTSPa303
-litespree/304 LTSPa304
-litespree/305 LTSPa305
+// sprees
+litespree/210 LTSPa210
+litespree/211 LTSPa211
+litespree/212 LTSPa212
+litespree/213 LTSPa213
+litespree/214 LTSPa214
+litespree/215 LTSPa215
 
-// RESERVED, sprees
+///////////////////////////////////////////////////////////////////////////////
+// multis
 litespree/300 LTSPa300
 litespree/301 LTSPa301
 litespree/302 LTSPa302
@@ -70,16 +62,16 @@ litespree/304 LTSPa304
 litespree/305 LTSPa305
 litespree/306 LTSPa306
 
+// sprees
+litespree/310 LTSPa310
+litespree/311 LTSPa311
+litespree/312 LTSPa312
+litespree/313 LTSPa313
+litespree/314 LTSPa314
+litespree/315 LTSPa315
+
 ///////////////////////////////////////////////////////////////////////////////
 // multis
-litespree/400 LTSPa400
-litespree/401 LTSPa401
-litespree/402 LTSPa402
-litespree/403 LTSPa403
-litespree/404 LTSPa404
-litespree/405 LTSPa405
-
-// sprees
 litespree/400 LTSPa400
 litespree/401 LTSPa401
 litespree/402 LTSPa402
@@ -88,16 +80,16 @@ litespree/404 LTSPa404
 litespree/405 LTSPa405
 litespree/406 LTSPa406
 
+// sprees
+litespree/410 LTSPa410
+litespree/411 LTSPa411
+litespree/412 LTSPa412
+litespree/413 LTSPa413
+litespree/414 LTSPa414
+litespree/415 LTSPa415
+
 ///////////////////////////////////////////////////////////////////////////////
 // multis
-litespree/500 LTSPa500
-litespree/501 LTSPa501
-litespree/502 LTSPa502
-litespree/503 LTSPa503
-litespree/504 LTSPa504
-litespree/505 LTSPa505
-
-// sprees
 litespree/500 LTSPa500
 litespree/501 LTSPa501
 litespree/502 LTSPa502
@@ -106,16 +98,16 @@ litespree/504 LTSPa504
 litespree/505 LTSPa505
 litespree/506 LTSPa506
 
+// sprees
+litespree/510 LTSPa510
+litespree/511 LTSPa511
+litespree/512 LTSPa512
+litespree/513 LTSPa513
+litespree/514 LTSPa514
+litespree/515 LTSPa515
+
 ///////////////////////////////////////////////////////////////////////////////
 // multis
-litespree/600 LTSPa600
-litespree/601 LTSPa601
-litespree/602 LTSPa602
-litespree/603 LTSPa603
-litespree/604 LTSPa604
-litespree/605 LTSPa605
-
-// sprees
 litespree/600 LTSPa600
 litespree/601 LTSPa601
 litespree/602 LTSPa602
@@ -124,16 +116,16 @@ litespree/604 LTSPa604
 litespree/605 LTSPa605
 litespree/606 LTSPa606
 
+// sprees
+litespree/610 LTSPa610
+litespree/611 LTSPa611
+litespree/612 LTSPa612
+litespree/613 LTSPa613
+litespree/614 LTSPa614
+litespree/615 LTSPa615
+
 ///////////////////////////////////////////////////////////////////////////////
 // multis
-litespree/700 LTSPa700
-litespree/701 LTSPa701
-litespree/702 LTSPa702
-litespree/703 LTSPa703
-litespree/704 LTSPa704
-litespree/705 LTSPa705
-
-// sprees
 litespree/700 LTSPa700
 litespree/701 LTSPa701
 litespree/702 LTSPa702
@@ -142,16 +134,16 @@ litespree/704 LTSPa704
 litespree/705 LTSPa705
 litespree/706 LTSPa706
 
+// sprees
+litespree/710 LTSPa710
+litespree/711 LTSPa711
+litespree/712 LTSPa712
+litespree/713 LTSPa713
+litespree/714 LTSPa714
+litespree/715 LTSPa715
+
 ///////////////////////////////////////////////////////////////////////////////
 // multis
-litespree/800 LTSPa800
-litespree/801 LTSPa801
-litespree/802 LTSPa802
-litespree/803 LTSPa803
-litespree/804 LTSPa804
-litespree/805 LTSPa805
-
-// sprees
 litespree/800 LTSPa800
 litespree/801 LTSPa801
 litespree/802 LTSPa802
@@ -160,6 +152,14 @@ litespree/804 LTSPa804
 litespree/805 LTSPa805
 litespree/806 LTSPa806
 
+// sprees
+litespree/810 LTSPa810
+litespree/811 LTSPa811
+litespree/812 LTSPa812
+litespree/813 LTSPa813
+litespree/814 LTSPa814
+litespree/815 LTSPa815
+
 ///////////////////////////////////////////////////////////////////////////////
 // multis
 litespree/900 LTSPa900
@@ -168,12 +168,13 @@ litespree/902 LTSPa902
 litespree/903 LTSPa903
 litespree/904 LTSPa904
 litespree/905 LTSPa905
+litespree/906 LTSPa906
 
 // sprees
-litespree/900 LTSPa900
-litespree/901 LTSPa901
-litespree/902 LTSPa902
-litespree/903 LTSPa903
-litespree/904 LTSPa904
-litespree/905 LTSPa905
-litespree/906 LTSPa906
+litespree/910 LTSPa910
+litespree/911 LTSPa911
+litespree/912 LTSPa912
+litespree/913 LTSPa913
+litespree/914 LTSPa914
+litespree/915 LTSPa915
+
