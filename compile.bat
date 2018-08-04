@@ -4,6 +4,8 @@ set LS_VER=1a
 
 set PATH=%CD%\bin;%PATH%
 
+COPY /Y README.txt src\
+
 bcc -I "%CD%\bin\lib" -x bcs -tab-size 4 src/source/litespre.bcs src/acs/litespre.o
 if not %errorlevel%==0 (
 	pause
