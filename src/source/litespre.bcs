@@ -42,9 +42,9 @@ enum
 
 strict namespace {
 
-Script "LiteSpree PlayerInit" (int idx)
+function void LS_PlayerInit(int idx)
 {
-	Thing_SetSpecial(0, ACS_ExecuteAlways, LS_DEATH_SCRIPT, 0, idx);
+	SetThingSpecial(0, ACS_ExecuteAlways, LS_DEATH_SCRIPT, 0, idx, 0, 0);
 
 	multiKillTimers[idx] = 0;
 	multiKills[idx] = 0;
@@ -53,12 +53,12 @@ Script "LiteSpree PlayerInit" (int idx)
 
 Script "LiteSpree PlayerEnter" ENTER
 {
-	ACS_NamedExecuteAlways("LiteSpree PlayerInit", 0, PlayerNumber(), 0, 0);
+	LS_PlayerInit(PlayerNumber());
 }
 
 Script "LiteSpree PlayerRespawn" RESPAWN
 {
-	ACS_NamedExecuteAlways("LiteSpree PlayerInit", 0, PlayerNumber(), 0, 0);
+	LS_PlayerInit(PlayerNumber());
 }
 
 // Executed when a player is killed..
@@ -66,7 +66,7 @@ Script "LiteSpree PlayerRespawn" RESPAWN
 Script LS_DEATH_SCRIPT (int victim)
 {
 	int killer = PlayerNumber();
-
+	
 	// If the victim had a spree, announce its end
 	if (sprees[victim] >= spree[0])
 	{
@@ -108,6 +108,7 @@ Script LS_DEATH_SCRIPT (int victim)
 // Despite the name, this actually announces everything
 Script "LiteSpree AnnounceMultiKill"(int msg, int player, int parm) CLIENTSIDE
 {
+	Log(s: "msg = ", d: msg, s: "; player = ", d: player, s: "; parm = ", d: parm);
 	if (msg == MSG_Multikill)
 	{
 		int index = parm;
@@ -143,7 +144,7 @@ Script "LiteSpree AnnounceMultiKill"(int msg, int player, int parm) CLIENTSIDE
 		if (parm < 2) isona = " on a";
 		str langs = StrParam(s: "spree", d: parm);
 
-		HudMessage(s: "\cf", n: player, s: "\cj is", s: isona, s: " \c", s: spreec[parm], l: langs ; HUDMSG_FADEOUT | HUDMSG_LOG,
+		HudMessageBold(s: "\cf", n: player + 1, s: "\cj is", s: isona, s: " \c", s: spreec[parm], l: langs ; HUDMSG_FADEOUT | HUDMSG_LOG,
 			69421, CR_WHITE, 1.5, 0.2, 1.0
 		);
 		
@@ -156,16 +157,18 @@ Script "LiteSpree AnnounceMultiKill"(int msg, int player, int parm) CLIENTSIDE
 	else if (msg == MSG_SpreeEnd)
 	{
 		int killer = parm;
+		bool isKillerFake = killer < 0 || killer >= MAXPLAYERS;
 
-		if (killer == player)
+		// If the killer isn't actually a player, they probably got killed by the map
+		if (isKillerFake || killer == player)
 		{
-			HudMessage(s: "\cf", n: player, s: "\cj was looking good until they killed themselves"; HUDMSG_FADEOUT | HUDMSG_LOG,
+			HudMessageBold(s: "\cf", n: player + 1, s: "\cj was looking good until they killed themselves"; HUDMSG_FADEOUT | HUDMSG_LOG,
 				69421, CR_WHITE, 1.5, 0.2, 1.0
 			);
 		}
 		else
 		{
-			HudMessage(s: "\cf", n: player, s: "\cj's killing spree was ended by \cf", n: killer; HUDMSG_FADEOUT | HUDMSG_LOG,
+			HudMessageBold(s: "\cf", n: player + 1, s: "\cj's killing spree was ended by \cf", n: killer + 1; HUDMSG_FADEOUT | HUDMSG_LOG,
 				69421, CR_WHITE, 1.5, 0.2, 1.0
 			);
 		}
