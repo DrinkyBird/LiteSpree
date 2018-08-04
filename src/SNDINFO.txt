@@ -1,0 +1,16 @@
+// UT Classic, multis
+litespree/000 LTSPa000
+litespree/001 LTSPa001
+litespree/002 LTSPa002
+litespree/003 LTSPa003
+litespree/004 LTSPa004
+litespree/005 LTSPa005
+litespree/006 LTSPa006
+
+// UT Classic, sprees
+litespree/010 LTSPa000
+litespree/011 LTSPa011
+litespree/012 LTSPa012
+litespree/013 LTSPa013
+litespree/014 LTSPa014
+litespree/015 LTSPa015
