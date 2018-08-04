@@ -1,2 +1,3 @@
 user int litespree_announcer = 0;
 user int litespree_volume = 100;
+user bool litespree_show_messages = true;

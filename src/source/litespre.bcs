@@ -108,7 +108,11 @@ Script LS_DEATH_SCRIPT (int victim)
 // Despite the name, this actually announces everything
 Script "LiteSpree AnnounceMultiKill"(int msg, int player, int parm) CLIENTSIDE
 {
-	Log(s: "msg = ", d: msg, s: "; player = ", d: player, s: "; parm = ", d: parm);
+	if (!GetCVar("litespree_show_messages"))
+	{
+		terminate;
+	}
+	
 	if (msg == MSG_Multikill)
 	{
 		int index = parm;
