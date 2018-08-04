@@ -168,20 +168,19 @@ Script "LiteSpree AnnounceMultiKill"(int msg, int player, int parm) CLIENTSIDE
 	}
 }
 
+function int clampint(int v, int minv, int maxv) 
+{
+	if (v < minv) return minv;
+	else if (v > maxv) return maxv;
+	return v;
+}
+
 function void LS_PlaySound(int isSpree, int sound)
 {
-	int announcer = GetCVar("litespree_announcer");
+	int announcer = clampint(GetCVar("litespree_announcer"), 0, 9);
+	int volume = clampint(GetCVar("litespree_volume"), 0, 100);
 	
-	if (announcer < 0)
-	{
-		announcer = 0;
-		SetCvar("litespree_announcer", announcer);
-	}
-	else if (announcer > 9)
-	{
-		announcer = 9;
-		SetCvar("litespree_announcer", announcer);
-	}
+	volume = int((fixed(volume) / 100.0) * 127.0);
 	
 	str sndname = "litespree/";
 	
@@ -194,5 +193,5 @@ function void LS_PlaySound(int isSpree, int sound)
 		
 	sndname = StrParam(s: sndname, d: sound);
 	
-	AmbientSound(sndname, 127);
+	AmbientSound(sndname, volume);
 }

@@ -1,1 +1,2 @@
 user int litespree_announcer = 0;
+user int litespree_volume = 100;
