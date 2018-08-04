@@ -17,3 +17,9 @@ if not %errorlevel%==0 (
 	pause
 	exit
 )
+
+7za a -tzip "%CD%\build\litespree-announcers-v%LS_VER%.pk3" -r "%CD%\announcers\*.*" -x!.gitignore
+if not %errorlevel%==0 (
+	pause
+	exit
+)

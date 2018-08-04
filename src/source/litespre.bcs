@@ -177,9 +177,9 @@ function void LS_PlaySound(int isSpree, int sound)
 		announcer = 0;
 		SetCvar("litespree_announcer", announcer);
 	}
-	else if (announcer >= LSA_NumAnnouncers)
+	else if (announcer > 9)
 	{
-		announcer = LSA_NumAnnouncers - 1;
+		announcer = 9;
 		SetCvar("litespree_announcer", announcer);
 	}
 	
