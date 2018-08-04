@@ -68,7 +68,7 @@ Script LS_DEATH_SCRIPT (int victim)
 	int killer = PlayerNumber();
 
 	// If the victim had a spree, announce its end
-	if (sprees[victim] >= sprees[0])
+	if (sprees[victim] >= spree[0])
 	{
 		ACS_NamedExecuteAlways("LiteSpree AnnounceMultiKill", 0, MSG_SpreeEnd, victim, killer);
 	}

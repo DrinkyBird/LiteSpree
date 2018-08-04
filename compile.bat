@@ -12,13 +12,13 @@ if not %errorlevel%==0 (
 
 DEL /F /Q "%CD%\build\litespree-v%LS_VER%.pk3"
 
-7za a -tzip "%CD%\build\litespree-v%LS_VER%.pk3" -r "%CD%\src\*.*" -x!.gitignore
+7za a -tzip -mm=deflate "%CD%\build\litespree-v%LS_VER%.pk3" -r "%CD%\src\*.*" -x!.gitignore -x!*.bcs
 if not %errorlevel%==0 (
 	pause
 	exit
 )
 
-7za a -tzip "%CD%\build\litespree-announcers-v%LS_VER%.pk3" -r "%CD%\announcers\*.*" -x!.gitignore
+7za a -tzip -mm=deflate "%CD%\build\litespree-announcers-v%LS_VER%.pk3" -r "%CD%\announcers\*.*" -x!.gitignore
 if not %errorlevel%==0 (
 	pause
 	exit
