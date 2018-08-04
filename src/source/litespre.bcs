@@ -23,8 +23,6 @@ str multic[MULTI_COUNT] = { "j", "d", "k", "h", "n", "a", "g" };
 int spree[SPREE_COUNT] = { 5, 10, 15, 20, 25, 30 };
 str spreec[SPREE_COUNT] = { "j", "d", "h", "g", "f", "a" };
 
-// ticks
-#define LS_MULTIKILL_TIMEOUT 120
 int multiKills[MAXPLAYERS];
 int multiKillTimers[MAXPLAYERS];
 int sprees[MAXPLAYERS];
@@ -81,7 +79,7 @@ Script LSS_PlayerDeath (int victim)
 	sprees[killer]++;
 
 	// Update the player's multikill status
-	if (Timer() - multiKillTimers[killer] >= LS_MULTIKILL_TIMEOUT)
+	if (Timer() - multiKillTimers[killer] >= GetCVar("litespree_multi_timeout"))
 	{
 		multiKills[killer] = 0;
 	}
