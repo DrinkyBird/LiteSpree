@@ -5,6 +5,14 @@
 
 #library "litespre"
 
+// forces bcc's C preprocessor
+#if 1
+
+#define LSS_PlayerEnter "LiteSpree PlayerEnter"
+#define LSS_PlayerRespawn "LiteSpree PlayerRespawn"
+#define LSS_PlayerDeath "LiteSpree PlayerDeath"
+#define LSS_AnnounceMultiKill "LiteSpree AnnounceMultiKill"
+
 #define MAXPLAYERS 64
 
 #define MULTI_COUNT 7
@@ -41,33 +49,33 @@ strict namespace {
 
 function void LS_PlayerInit(int idx)
 {
-	SetThingSpecial(0, ACS_NamedExecuteAlways, "LiteSpree PlayerDeath", 0, idx, 0, 0);
+	SetThingSpecial(0, ACS_NamedExecuteAlways, LSS_PlayerDeath, 0, idx, 0, 0);
 
 	multiKillTimers[idx] = 0;
 	multiKills[idx] = 0;
 	sprees[idx] = 0;
 }
 
-Script "LiteSpree PlayerEnter" ENTER
+Script LSS_PlayerEnter ENTER
 {
 	LS_PlayerInit(PlayerNumber());
 }
 
-Script "LiteSpree PlayerRespawn" RESPAWN
+Script LSS_PlayerRespawn RESPAWN
 {
 	LS_PlayerInit(PlayerNumber());
 }
 
 // Executed when a player is killed..
 // Activator is the killer, victim is the killee.
-Script "LiteSpree PlayerDeath" (int victim)
+Script LSS_PlayerDeath (int victim)
 {
 	int killer = PlayerNumber();
 	
 	// If the victim had a spree, announce its end
 	if (sprees[victim] >= spree[0])
 	{
-		ACS_NamedExecuteAlways("LiteSpree AnnounceMultiKill", 0, MSG_SpreeEnd, victim, killer);
+		ACS_NamedExecuteAlways(LSS_AnnounceMultiKill, 0, MSG_SpreeEnd, victim, killer);
 	}
 
 	sprees[killer]++;
@@ -85,7 +93,7 @@ Script "LiteSpree PlayerDeath" (int victim)
 	{
 		if (multiKills[killer] == multis[i])
 		{
-			ACS_NamedExecuteAlways("LiteSpree AnnounceMultiKill", 0, MSG_Multikill, killer, i);
+			ACS_NamedExecuteAlways(LSS_AnnounceMultiKill, 0, MSG_Multikill, killer, i);
 
 			break;
 		}
@@ -95,7 +103,7 @@ Script "LiteSpree PlayerDeath" (int victim)
 	{
 		if (sprees[killer] == spree[i])
 		{
-			ACS_NamedExecuteAlways("LiteSpree AnnounceMultiKill", 0, MSG_Spree, killer, i);
+			ACS_NamedExecuteAlways(LSS_AnnounceMultiKill, 0, MSG_Spree, killer, i);
 
 			break;
 		}
@@ -103,7 +111,7 @@ Script "LiteSpree PlayerDeath" (int victim)
 }
 
 // Despite the name, this actually announces everything
-Script "LiteSpree AnnounceMultiKill"(int msg, int player, int parm) CLIENTSIDE
+Script LSS_AnnounceMultiKill (int msg, int player, int parm) CLIENTSIDE
 {
 	if (!GetCVar("litespree_show_messages"))
 	{
@@ -205,3 +213,4 @@ function void LS_PlaySound(int isSpree, int sound)
 }
 
 } // strict namespace
+#endif // 1
