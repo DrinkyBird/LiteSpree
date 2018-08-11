@@ -1,0 +1,69 @@
+[i][size=200]LiteSpree[/size][/i] [super]TM[/super]
+
+LiteSpree is an addon Zandronum that adds multi-kills and killing sprees. It's been in development for literally years after that time ZandroSpree broke during an FNF. But it got run on FNF last night and now Marcaek wants me to post it to the forum so are you happy now marc???////
+
+[u][size=150]Features[/size][/u]
+[list]
+[*] Light! Fits in a whole sector of your typical hard drive!
+[*] Customisable! Use the stock announcer pack, make your own, or use none at all! Announcers are seperated from the core mod, so you can do whatever with them!
+[*] Modern! Uses named scripts, so mod conflicts will only happen if a developer of a mod you're playing really hates me or something
+[/list]
+
+[spoiler=TODO]
+[list]
+[*] Customisable HUD message positions
+[*] some way of making announcements not conflict with eachother?
+[/list]
+[/spoiler]
+
+[u][size=150]Download[/size][/u]
+[list][*][size=130][url=https://allfearthesentinel.net/zandronum/download.php?file=litespree-v1a-beta7.pk3]LiteSpree v1a-beta7[/url][/size]
+[*][size=130][url=https://allfearthesentinel.net/zandronum/download.php?file=litespree-announcers-v1a.pk3]LiteSpree Announcers v1a[/url][/size]
+[*][url=https://dev.allfearthesentinel.net/csnxs/litespree]Source code[/url]
+[/list]
+
+[b]Server hosts:[/b] You should host the announcer pack as an optional wad, using [font=monospace]-optfile[/font]. On TSPG, it's the Optional WADs box next to the normal WADs box.
+
+[u][size=150]Announcers![/size][/u]
+The stock announcer pack has all of the stock announcers from ZandroSpree:
+
+0. UT 2004 Male
+1. UT 2003 Male
+2. UT 2004 Female
+3. "Sexy" Female
+
+So cheers to wherever they came from.
+
+[spoiler=Make your own announcers! (guide stolen from readme)][code]
+If you want to make your own announcer pack, it's easy! Sound files use
+the following naming scheme:
+
+LTSPa<X><Y><Z>
+
+where
+  <X> is the number of the announcer (from 0-9),
+  <Y> is the type of announcement (0 = multi-kill, 1 = spree),
+  <Z> is the number of the multi kill or spree (zero-indexed).
+
+For example:
+  LTSPa106.ogg -- announcer 1, multi-kill 6 (holy shit)
+  LTSPa212.ogg -- announcer 2, spree 2 (dominating)
+[/code][/spoiler]
+
+[u][size=150]Configuration[/size][/u]
+[b]Client[/b]
+[list]
+[*] [b][font=monospace]litespree_announcer[/font][/b] (default [font=monospace]0[/font])
+Sets the announcer ID, from 0-9
+[*] [b][font=monospace]litespree_volume[/font][/b] (default [font=monospace]100[/font])
+Sets the announcer volume, from 0-100
+[*] [b][font=monospace]litespree_show_messages[/font][/b] (default [font=monospace]true[/font])
+Sets whether to show messages or not. Unfortunately, this also
+disables the announcer, I'll change this eventually...
+[/list]
+
+[b]Server[/b]
+[list]
+[*] [b][font=monospace]litespree_multi_timeout[/font][/b] (default [font=monospace]120[/font])
+Sets the multi-kill timeout, in tics.
+[/list]
