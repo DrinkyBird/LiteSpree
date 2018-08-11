@@ -34,15 +34,6 @@ enum
 	MSG_SpreeEnd
 };
 
-enum 
-{
-	LSA_UTClassic,
-	
-	LSA_NumAnnouncers
-};
-
-
-
 strict namespace {
 
 function void LS_PlayerInit(int idx)
