@@ -107,68 +107,77 @@ Script LSS_AnnounceMultiKill (int msg, int player, int parm) CLIENTSIDE
 		terminate;
 	}
 	
-	if (msg == MSG_Multikill)
+	switch (msg)
 	{
-		int index = parm;
-		str lang = StrParam(s: "multi", d: index);
+		case MSG_Multikill:
+		{
+			int index = parm;
+			str lang = StrParam(s: "multi", d: index);
 
-		// We are not the person with the multi.
-		if (ConsolePlayerNumber() != player)
-		{
-			// We don't care.
-			terminate;
-		}
-		// We are the person with the multi.
-		else
-		{
-			if (index >= 4) // >= monster kill
+			// We are not the person with the multi.
+			if (ConsolePlayerNumber() != player)
 			{
-				SetFont("BIGFONT");
+				// We don't care.
+				break;
 			}
+			// We are the person with the multi.
+			else
+			{
+				if (index >= 4) // >= monster kill
+				{
+					SetFont("BIGFONT");
+				}
 
-			HudMessage(s: "\c", s: multic[index], l: lang; HUDMSG_FADEOUT | HUDMSG_LOG,
-				69420, CR_WHITE, 1.5, 0.25, 1.0
-			);
+				HudMessage(s: "\c", s: multic[index], l: lang; HUDMSG_FADEOUT | HUDMSG_LOG,
+					69420, CR_WHITE, 1.5, 0.25, 1.0
+				);
 
-			SetFont("DOOMFONT");
+				SetFont("DOOMFONT");
+				
+				LS_PlaySound(0, index);
+			}
 			
-			LS_PlaySound(0, index);
+			break;
 		}
-	}
 
-	else if (msg == MSG_Spree)
-	{
-		str isona = "";
-		if (parm < 2) isona = " on a";
-		str langs = StrParam(s: "spree", d: parm);
-
-		HudMessageBold(s: "\cf", n: player + 1, s: "\cj is", s: isona, s: " \c", s: spreec[parm], l: langs ; HUDMSG_FADEOUT | HUDMSG_LOG,
-			69421, CR_WHITE, 1.5, 0.2, 1.0
-		);
-		
-		if (ConsolePlayerNumber() == player)
+		case MSG_Spree:
 		{
-			LS_PlaySound(1, parm);
-		}
-	}
+			str isona = "";
+			if (parm < 2) isona = " on a";
+			str langs = StrParam(s: "spree", d: parm);
 
-	else if (msg == MSG_SpreeEnd)
-	{
-		int killer = parm;
-		bool isKillerFake = killer < 0 || killer >= MAXPLAYERS;
-
-		// If the killer isn't actually a player, they probably got killed by the map
-		if (isKillerFake || killer == player)
-		{
-			HudMessageBold(s: "\cf", n: player + 1, s: "\cj was looking good until they killed themselves"; HUDMSG_FADEOUT | HUDMSG_LOG,
+			HudMessageBold(s: "\cf", n: player + 1, s: "\cj is", s: isona, s: " \c", s: spreec[parm], l: langs ; HUDMSG_FADEOUT | HUDMSG_LOG,
 				69421, CR_WHITE, 1.5, 0.2, 1.0
 			);
+			
+			if (ConsolePlayerNumber() == player)
+			{
+				LS_PlaySound(1, parm);
+			}
+			
+			break;
 		}
-		else
+
+		case MSG_SpreeEnd:
 		{
-			HudMessageBold(s: "\cf", n: player + 1, s: "\cj's killing spree was ended by \cf", n: killer + 1; HUDMSG_FADEOUT | HUDMSG_LOG,
-				69421, CR_WHITE, 1.5, 0.2, 1.0
-			);
+			int killer = parm;
+			bool isKillerFake = killer < 0 || killer >= MAXPLAYERS;
+
+			// If the killer isn't actually a player, they probably got killed by the map
+			if (isKillerFake || killer == player)
+			{
+				HudMessageBold(s: "\cf", n: player + 1, s: "\cj was looking good until they killed themselves"; HUDMSG_FADEOUT | HUDMSG_LOG,
+					69421, CR_WHITE, 1.5, 0.2, 1.0
+				);
+			}
+			else
+			{
+				HudMessageBold(s: "\cf", n: player + 1, s: "\cj's killing spree was ended by \cf", n: killer + 1; HUDMSG_FADEOUT | HUDMSG_LOG,
+					69421, CR_WHITE, 1.5, 0.2, 1.0
+				);
+			}
+			
+			break;
 		}
 	}
 }
