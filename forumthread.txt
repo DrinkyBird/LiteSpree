@@ -1,6 +1,6 @@
 [i][size=200]LiteSpree[/size][/i] [super]TM[/super]
 
-LiteSpree is an addon Zandronum that adds multi-kills and killing sprees. It's been in development for literally years after that time ZandroSpree broke during an FNF. But it got run on FNF last night and now Marcaek wants me to post it to the forum so are you happy now marc???////
+LiteSpree is an addon for Zandronum that adds multi-kills and killing sprees. It's been in development for literally years after that time ZandroSpree broke during an FNF. But it got run on FNF last night and now Marcaek wants me to post it to the forum so are you happy now marc???////
 
 [u][size=150]Features[/size][/u]
 [list]
@@ -17,8 +17,8 @@ LiteSpree is an addon Zandronum that adds multi-kills and killing sprees. It's b
 [/spoiler]
 
 [u][size=150]Download[/size][/u]
-[list][*][size=130][url=https://allfearthesentinel.net/zandronum/download.php?file=litespree-v1a-beta7.pk3]LiteSpree v1a-beta7[/url][/size]
-[*][size=130][url=https://allfearthesentinel.net/zandronum/download.php?file=litespree-announcers-v1a.pk3]LiteSpree Announcers v1a[/url][/size]
+[list][*][size=130][url=https://allfearthesentinel.net/zandronum/download.php?file=litespree-v1a.pk3]LiteSpree v1a[/url][/size] Mirrors: [url=https://britsteel.allfearthesentinel.net/zandronum/download.php?file=litespree-v1a.pk3]BritSteel[/url], [url=https://csnxs.uk/files/wads/litespree-v1a.pk3]csnxs.uk[/url]
+[*][size=130][url=https://allfearthesentinel.net/zandronum/download.php?file=litespree-announcers-v1a.pk3]LiteSpree Announcers v1a[/url][/size] Mirrors: [url=https://allfearthesentinel.net/zandronum/download.php?file=litespree-announcers-v1a.pk3]BritSteel[/url], [url=https://csnxs.uk/files/wads/litespree-announcers-v1a.pk3]csnxs.uk[/url]
 [*][url=https://dev.allfearthesentinel.net/csnxs/litespree]Source code[/url]
 [/list]
 
