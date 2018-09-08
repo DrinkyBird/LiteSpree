@@ -34,6 +34,13 @@ enum
 	MSG_SpreeEnd
 };
 
+enum
+{
+	GENDER_MALE = 0,
+	GENDER_FEMALE = 1,
+	GENDER_OTHER = 2
+};
+
 strict namespace {
 
 function void LS_PlayerInit(int idx)
@@ -113,6 +120,8 @@ Script LSS_AnnounceMultiKill (int msg, int player, int parm) CLIENTSIDE
 		terminate;
 	}
 	
+	str they = LS_Gender_They(player);
+	str themselves = LS_Gender_Themselves(player);
 	switch (msg)
 	{
 		case MSG_Multikill:
@@ -214,6 +223,29 @@ function void LS_PlaySound(int isSpree, int sound)
 	sndname = StrParam(s: sndname, d: sound);
 	
 	AmbientSound(sndname, volume);
+}
+
+// Gender helper functions
+function str LS_Gender_They(int player)
+{
+	int g = GetPlayerInfo(player, PLAYERINFO_GENDER);
+	switch (g)
+	{
+		case GENDER_MALE: return "he";
+		case GENDER_FEMALE: return "she";
+		default: return "it";
+	}
+}
+
+function str LS_Gender_Themselves(int player)
+{
+	int g = GetPlayerInfo(player, PLAYERINFO_GENDER);
+	switch (g)
+	{
+		case GENDER_MALE: return "himself";
+		case GENDER_FEMALE: return "herself";
+		default: return "itself";
+	}
 }
 
 } // strict namespace
