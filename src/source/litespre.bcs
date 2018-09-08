@@ -66,6 +66,12 @@ Script LSS_PlayerDeath (int victim)
 	{
 		ACS_NamedExecuteAlways(LSS_AnnounceMultiKill, 0, MSG_SpreeEnd, victim, killer);
 	}
+	
+	// Ignore suicides.
+	if (killer == victim)
+	{
+		terminate;
+	}
 
 	sprees[killer]++;
 
