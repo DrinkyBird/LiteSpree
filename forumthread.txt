@@ -22,7 +22,7 @@ LiteSpree is an addon for Zandronum that adds multi-kills and killing sprees. It
 [*][url=https://github.com/csnxs/litespree]Source code[/url]
 [/list]
 
-[b]Server hosts:[/b] You should host the announcer pack as an optional wad, using [font=monospace]-optfile[/font]. On TSPG, it's the Optional WADs box next to the normal WADs box.
+[b]Server hosts:[/b] You should host the announcer pack as an optional wad, using [font=Consolas,monospace]-optfile[/font]. On TSPG, it's the Optional WADs box next to the normal WADs box.
 
 [u][size=150]Announcers![/size][/u]
 The stock announcer pack has all of the stock announcers from ZandroSpree:
@@ -53,19 +53,19 @@ For example:
 [u][size=150]Configuration[/size][/u]
 [b]Client[/b]
 [list]
-[*] [b][font=monospace]litespree_announcer[/font][/b] (default [font=monospace]0[/font])
+[*] [b][font=Consolas,monospace]litespree_announcer[/font][/b] (default [font=Consolas,monospace]0[/font])
 Sets the announcer ID, from 0-9
-[*] [b][font=monospace]litespree_volume[/font][/b] (default [font=monospace]100[/font])
+[*] [b][font=Consolas,monospace]litespree_volume[/font][/b] (default [font=Consolas,monospace]100[/font])
 Sets the announcer volume, from 0-100
-[*] [b][font=monospace]litespree_show_messages[/font][/b] (default [font=monospace]true[/font])
+[*] [b][font=Consolas,monospace]litespree_show_messages[/font][/b] (default [font=Consolas,monospace]true[/font])
 Sets whether to show messages or not. Unfortunately, this also
 disables the announcer, I'll change this eventually...
-[*] [b][font=monospace]litespree_message_time[/font][/b] (default [font=monospace]1.0[/font])
+[*] [b][font=Consolas,monospace]litespree_message_time[/font][/b] (default [font=Consolas,monospace]1.0[/font])
 Sets how long messages will be displayed for, in seconds.
 [/list]
 
 [b]Server[/b]
 [list]
-[*] [b][font=monospace]litespree_multi_timeout[/font][/b] (default [font=monospace]120[/font])
+[*] [b][font=Consolas,monospace]litespree_multi_timeout[/font][/b] (default [font=Consolas,monospace]120[/font])
 Sets the multi-kill timeout, in tics.
 [/list]
