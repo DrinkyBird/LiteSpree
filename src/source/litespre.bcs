@@ -122,6 +122,9 @@ Script LSS_AnnounceMultiKill (int msg, int player, int parm) CLIENTSIDE
 	
 	str they = LS_Gender_They(player);
 	str themselves = LS_Gender_Themselves(player);
+	
+	fixed msgTime = max(0.1, GetCVar("litespree_message_time"));
+	
 	switch (msg)
 	{
 		case MSG_Multikill:
@@ -144,7 +147,7 @@ Script LSS_AnnounceMultiKill (int msg, int player, int parm) CLIENTSIDE
 				}
 
 				HudMessage(s: "\c", s: multic[index], l: lang; HUDMSG_FADEOUT | HUDMSG_LOG,
-					69420, CR_WHITE, 1.5, 0.25, 1.0
+					69420, CR_WHITE, 1.5, 0.25, msgTime
 				);
 
 				SetFont("DOOMFONT");
@@ -162,7 +165,7 @@ Script LSS_AnnounceMultiKill (int msg, int player, int parm) CLIENTSIDE
 			str langs = StrParam(s: "spree", d: parm);
 
 			HudMessageBold(s: "\cf", n: player + 1, s: "\cj is", s: isona, s: " \c", s: spreec[parm], l: langs ; HUDMSG_FADEOUT | HUDMSG_LOG,
-				69421, CR_WHITE, 1.5, 0.2, 1.0
+				69421, CR_WHITE, 1.5, 0.2, msgTime
 			);
 			
 			if (ConsolePlayerNumber() == player)
@@ -181,7 +184,7 @@ Script LSS_AnnounceMultiKill (int msg, int player, int parm) CLIENTSIDE
 			// If the killer isn't actually a player, they probably got killed by the map
 			if (isKillerFake || killer == player)
 			{
-				HudMessageBold(s: "\cf", n: player + 1, s: "\cj was looking good until they killed themselves"; HUDMSG_FADEOUT | HUDMSG_LOG,
+				HudMessageBold(s: "\cf", n: player + 1, s: "\cj was looking good until ", s: they, s:" killed ", s: themselves; HUDMSG_FADEOUT | HUDMSG_LOG,
 					69421, CR_WHITE, 1.5, 0.2, 1.0
 				);
 			}
@@ -202,6 +205,11 @@ function int clampint(int v, int minv, int maxv)
 	if (v < minv) return minv;
 	else if (v > maxv) return maxv;
 	return v;
+}
+
+function raw max(raw a, raw b) {
+	if (a > b) return a;
+	return b;
 }
 
 function void LS_PlaySound(int isSpree, int sound)

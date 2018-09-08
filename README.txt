@@ -58,6 +58,9 @@ Configuration:
       Sets whether to show messages or not. Unfortunately, this also
 	  disables announcements, I'll change this eventually...
 	  
+  * litespree_message_time  (default 1.0)
+      Sets how long messages will be displayed for, in seconds.
+	  
   SERVER SIDE
   * litespree_multi_timeout  (default 120)
       Sets the multi-kill timeout, in tics.

@@ -1,5 +1,6 @@
 user int litespree_announcer = 0;
 user int litespree_volume = 100;
 user bool litespree_show_messages = true;
+user float litespree_message_time = 1.0;
 
 server int litespree_multi_timeout = 120;

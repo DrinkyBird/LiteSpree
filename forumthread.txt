@@ -60,6 +60,8 @@ Sets the announcer volume, from 0-100
 [*] [b][font=monospace]litespree_show_messages[/font][/b] (default [font=monospace]true[/font])
 Sets whether to show messages or not. Unfortunately, this also
 disables the announcer, I'll change this eventually...
+[*] [b][font=monospace]litespree_message_time[/font][/b] (default [font=monospace]1.0[/font])
+Sets how long messages will be displayed for, in seconds.
 [/list]
 
 [b]Server[/b]
