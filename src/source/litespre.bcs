@@ -41,6 +41,12 @@ enum
 	GENDER_OTHER = 2
 };
 
+enum
+{
+	LSMSG_MULTI = 69420,
+	LSMSG_SPREE = 69421
+};
+
 strict namespace {
 
 function void LS_PlayerInit(int idx)
@@ -147,7 +153,7 @@ Script LSS_AnnounceMultiKill (int msg, int player, int parm) CLIENTSIDE
 				}
 
 				HudMessage(s: "\c", s: multic[index], l: lang; HUDMSG_FADEOUT | HUDMSG_LOG,
-					69420, CR_WHITE, 1.5, 0.25, msgTime
+					LSMSG_MULTI, CR_WHITE, 1.5, 0.25, msgTime
 				);
 
 				SetFont("DOOMFONT");
@@ -165,7 +171,7 @@ Script LSS_AnnounceMultiKill (int msg, int player, int parm) CLIENTSIDE
 			str langs = StrParam(s: "spree", d: parm);
 
 			HudMessageBold(s: "\cf", n: player + 1, s: "\cj is", s: isona, s: " \c", s: spreec[parm], l: langs ; HUDMSG_FADEOUT | HUDMSG_LOG,
-				69421, CR_WHITE, 1.5, 0.2, msgTime
+				LSMSG_SPREE, CR_WHITE, 1.5, 0.2, msgTime
 			);
 			
 			if (ConsolePlayerNumber() == player)
@@ -185,13 +191,13 @@ Script LSS_AnnounceMultiKill (int msg, int player, int parm) CLIENTSIDE
 			if (isKillerFake || killer == player)
 			{
 				HudMessageBold(s: "\cf", n: player + 1, s: "\cj was looking good until ", s: they, s:" killed ", s: themselves; HUDMSG_FADEOUT | HUDMSG_LOG,
-					69421, CR_WHITE, 1.5, 0.2, 1.0
+					LSMSG_SPREE, CR_WHITE, 1.5, 0.2, 1.0
 				);
 			}
 			else
 			{
 				HudMessageBold(s: "\cf", n: player + 1, s: "\cj's killing spree was ended by \cf", n: killer + 1; HUDMSG_FADEOUT | HUDMSG_LOG,
-					69421, CR_WHITE, 1.5, 0.2, 1.0
+					LSMSG_SPREE, CR_WHITE, 1.5, 0.2, 1.0
 				);
 			}
 			
