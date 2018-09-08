@@ -17,9 +17,9 @@ LiteSpree is an addon for Zandronum that adds multi-kills and killing sprees. It
 [/spoiler]
 
 [u][size=150]Download[/size][/u]
-[list][*][size=130][url=https://allfearthesentinel.net/zandronum/download.php?file=litespree-v1a.pk3]LiteSpree v1a[/url][/size] Mirrors: [url=https://britsteel.allfearthesentinel.net/zandronum/download.php?file=litespree-v1a.pk3]BritSteel[/url], [url=https://csnxs.uk/files/wads/litespree-v1a.pk3]csnxs.uk[/url]
+[list][*][size=130][url=https://allfearthesentinel.net/zandronum/download.php?file=litespree-v1b.pk3]LiteSpree v1b[/url][/size] Mirrors: [url=https://britsteel.allfearthesentinel.net/zandronum/download.php?file=litespree-v1b.pk3]BritSteel[/url], [url=https://csnxs.uk/files/wads/litespree-v1b.pk3]csnxs.uk[/url], [url=https://github.com/csnxs/LiteSpree/releases/download/v1b/litespree-v1b.pk3]GitHub[/url]
 [*][size=130][url=https://allfearthesentinel.net/zandronum/download.php?file=litespree-announcers-v1a.pk3]LiteSpree Announcers v1a[/url][/size] Mirrors: [url=https://allfearthesentinel.net/zandronum/download.php?file=litespree-announcers-v1a.pk3]BritSteel[/url], [url=https://csnxs.uk/files/wads/litespree-announcers-v1a.pk3]csnxs.uk[/url]
-[*][url=https://dev.allfearthesentinel.net/csnxs/litespree]Source code[/url]
+[*][url=https://github.com/csnxs/litespree]Source code[/url]
 [/list]
 
 [b]Server hosts:[/b] You should host the announcer pack as an optional wad, using [font=monospace]-optfile[/font]. On TSPG, it's the Optional WADs box next to the normal WADs box.

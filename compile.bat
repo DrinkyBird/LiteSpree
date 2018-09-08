@@ -1,6 +1,6 @@
 @echo off
 
-set LS_VER=1b
+set LS_VER=1c
 
 set PATH=%CD%\bin;%PATH%
 
