@@ -1,6 +1,8 @@
 @echo off
 
-set LS_VER=1c
+IF NOT DEFINED LS_VER (
+	CALL version.bat
+)
 
 set PATH=%CD%\bin;%PATH%
 
