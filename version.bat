@@ -1,1 +1,1 @@
-@SET LS_VER=v1c
+@SET LS_VER=1c
